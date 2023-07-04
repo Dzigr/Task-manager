@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang="{{ LANGUAGE_CODE }}">
+
 {% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
 <head>
         <meta charset="UTF-8">
-        <title>Главная страница</title>
+        <title>{% trans 'Home page' %}</title>
 </head>
 
 <body>
     <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Менеджер задач</a>
+    <a class="navbar-brand" href="#">{% trans 'Task Manager' %}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,15 +25,15 @@
       <ul class="navbar-nav mr-auto">
 
         <li class="nav-item active">
-          <a class="nav-link" href="#">Пользователи</a>
+          <a class="nav-link" href="#">{% trans 'Users' %}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Вход</a>
+          <a class="nav-link" href="#">{% trans 'Log in' %}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Регистрация</a>
+          <a class="nav-link" href="#">{% trans 'Sing up' %}</a>
         </li>
 
       </ul>
