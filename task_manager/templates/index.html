@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Task manager' %}{% endblock %}
+
+{% block content %}
+<main role="main" class="container" style="margin-top: 50px">
+    <div class="card text-center">
+        <div class="card-body p-5 bg-light">
+            <div class="d-flex flex-column">
+            <h1 class="display-4">{% trans 'Welcome to the Task manager' %}</h1>
+            <br>
+            <p class="lead">{% trans 'Simple task management app, that allows to set tasks with statuses and tags.' %}</p>
+        </div>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-04 20:37+0300\n"
+"POT-Creation-Date: 2023-07-05 17:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,22 +19,30 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: task_manager/templates/base.html:13
-msgid "Home page"
-msgstr "Главная страница"
 
-#: task_manager/templates/base.html:19
-msgid "Task Manager"
+#: task_manager/templates/base.html:22 task_manager/templates/index.html:4
+msgid "Task manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/base.html:28
+#: task_manager/templates/base.html:31
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base.html:32
+#: task_manager/templates/base.html:35
 msgid "Log in"
 msgstr "Войти"
 
-#: task_manager/templates/base.html:36
+#: task_manager/templates/base.html:39
 msgid "Sing up"
 msgstr "Регистрация"
+
+#: task_manager/templates/index.html:11
+msgid "Welcome to the Task manager"
+msgstr "Добро пожаловать в Менеджер задач"
+
+#: task_manager/templates/index.html:13
+msgid "Simple task management app, that allows to set tasks with statuses and tags."
+msgstr "Простое приложение для управления задачами, позволяющее ставить задачи со статусами и метками."
+
+#~ msgid "Home page"
+#~ msgstr "Главная страница"
