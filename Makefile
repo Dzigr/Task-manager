@@ -10,3 +10,10 @@ local:
 
 start:
 	poetry run gunicorn task_manager.wsgi
+
+shell:
+	poetry run python manage.py shell
+
+migration:
+	poetry run python manage.py makemigrations
+	poetry run python manage.py migrate
