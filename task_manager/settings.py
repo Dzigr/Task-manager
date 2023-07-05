@@ -51,8 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Added bootstrap
     'django_bootstrap5',
-    # Added app
+    # Added apps
     'task_manager',
+    'task_manager.apps.users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
