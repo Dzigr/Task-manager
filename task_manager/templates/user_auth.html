@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block title %}{% trans 'Login' %}{% endblock %}
+
+{% block content %}
+
+<h1 class="my-4" >{% trans 'Login' %}</h1>
+<form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+    <button class="btn btn-primary" type="submit">{% trans "Sign in" %}</button>
+</form>
+
+{% endblock %}
