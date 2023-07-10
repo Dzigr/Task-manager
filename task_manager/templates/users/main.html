@@ -6,9 +6,8 @@
 
 {% block content %}
 
-<div class="container wrapper flex-grow-3">
       <h1 class="my-4">{% trans 'Users' %}</h1>
-        <table class="table table-striped border">
+        <table class="table table-striped">
           <thead class="thead-dark">
             <tr>
               <th>ID</th>
@@ -29,8 +28,8 @@
               <td>{{ user.first_name }} {{ user.last_name }}</td>
               <td>{{ user.date_joined|date:"d.m.y h:i" }}</td>
               <td>
-                <a class="btn btn-primary" href="" role="button">{% trans 'Edit' %}</a>
-                <a class="btn btn-danger" href="" role="button">{% trans 'Delete' %}</a>
+                <a class="btn btn-primary" href="{% url 'edit' user.pk %}" role="button">{% trans 'Edit' %}</a>
+                <a class="btn btn-danger" href="{% url 'delete' user.pk %}" role="button">{% trans 'Delete' %}</a>
               </td>
             </tr>
 
@@ -39,6 +38,5 @@
 
           </tbody>
         </table>
-</div>
 
 {% endblock %}
