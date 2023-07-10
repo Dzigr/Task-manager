@@ -17,3 +17,15 @@ shell:
 migration:
 	poetry run python manage.py makemigrations
 	poetry run python manage.py migrate
+
+locale_up:
+	django-admin makemessages -l ru
+
+locale_comp:
+	django-admin compilemessages
+
+lint:
+	poetry run flake8 .
+
+test:
+	poetry run python manage.py test
