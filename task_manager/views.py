@@ -9,19 +9,18 @@ from django.contrib import messages
 
 class IndexView(SuccessMessageMixin, TemplateView):
     template_name = 'index.html'
-    success_message = 'sdada'
 
 
 class UserLoginView(SuccessMessageMixin, LoginView):
     form_class = AuthenticationForm
-    template_name = 'user_auth.html'
+    template_name = 'authenticate/user_auth.html'
     next_page = reverse_lazy('main')
     success_message = _("You're logged in")
 
 
 class UserLogoutView(SuccessMessageMixin, LogoutView):
     next_page = reverse_lazy('main')
-    success_message = _('You are logged out')
+    success_message = _("You're logged out")
 
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, _("You're logged out"))
