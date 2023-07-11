@@ -23,14 +23,14 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = NewUserCreationForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('login')
-    success_message = _("Registration successful")
+    success_message = _('Registration successful')
 
     def form_valid(self, form):
         return super().form_valid(form)
 
     def form_invalid(self, form):
         messages.error(request=self.request,
-                       message=_("Unsuccessful registration. Invalid information."))
+                       message=_('Unsuccessful registration. Invalid information.'))
         return super().form_invalid(form)
 
 

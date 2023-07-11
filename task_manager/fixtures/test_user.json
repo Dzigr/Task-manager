@@ -1,0 +1,16 @@
+  {
+    "new_valid": {
+      "username": "Vostok4",
+      "first_name": "Pavel",
+      "last_name": "Popovich",
+      "password1": "p@3rNGHhhcy",
+      "password2": "p@3rNGHhhcy"
+    },
+    "new_not_valid": {
+      "username": "Vostok!",
+      "first_name": "Pavel",
+      "last_name": "Popovich",
+      "password1": "p@3rNGHhhcy",
+      "password2": "p@3rNGHhhcy"
+    }
+  }
