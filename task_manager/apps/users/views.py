@@ -7,7 +7,6 @@ from django.utils.translation import gettext_lazy as _
 
 from .forms import NewUserCreationForm, UpdateForm
 from task_manager.mixins import UserAuthenticateMixin, CheckUserPermissionMixin
-from .models import User
 
 
 class UserListView(SuccessMessageMixin, ListView):
@@ -19,7 +18,7 @@ class UserListView(SuccessMessageMixin, ListView):
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     """View for form to create a new user."""
-    model = User
+    model = get_user_model()
     form_class = NewUserCreationForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('login')

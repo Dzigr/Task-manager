@@ -15,7 +15,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
     form_class = AuthenticationForm
     template_name = 'authenticate/user_auth.html'
     next_page = reverse_lazy('main')
-    success_message = _("You're logged in")
+    success_message = _("You are logged in")
 
 
 class UserLogoutView(SuccessMessageMixin, LogoutView):
