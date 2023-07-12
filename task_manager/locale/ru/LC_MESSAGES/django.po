@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-12 15:45+0300\n"
+"POT-Creation-Date: 2023-07-12 17:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,30 +20,40 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/apps/status/models.py:7
+#: task_manager/apps/statuses/models.py:7
 #: task_manager/templates/statuses/main.html:16
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/apps/status/models.py:16 task_manager/templates/navbar.html:18
+#: task_manager/apps/statuses/models.py:16
+#: task_manager/templates/navbar.html:18
 #: task_manager/templates/statuses/main.html:5
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/apps/status/models.py:17
+#: task_manager/apps/statuses/models.py:17
 #: task_manager/templates/statuses/main.html:9
 msgid "Statuses"
 msgstr "Статусы"
 
-#: task_manager/apps/status/views.py:24
-msgid "Status successfully created"
-msgstr "Статус успешно создан"
+#: task_manager/apps/statuses/tests/tests.py:99
+msgid "This field is required."
+msgstr "Это поле обязательно для заполнения."
 
-#: task_manager/apps/status/views.py:33
+#: task_manager/apps/statuses/tests/tests.py:113
+msgid "Status with this Name already exists."
+msgstr "Статус с таким Имя уже существует."
+
+#: task_manager/apps/statuses/tests/tests.py:144
+#: task_manager/apps/statuses/views.py:33
 msgid "Status successfully updated"
 msgstr "Статус успешно изменен"
 
-#: task_manager/apps/status/views.py:40
+#: task_manager/apps/statuses/views.py:24
+msgid "Status successfully created"
+msgstr "Статус успешно создан"
+
+#: task_manager/apps/statuses/views.py:40
 msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
 
@@ -71,8 +81,8 @@ msgstr "Пользователь успешно зарегистрирован"
 msgid "User is successfully deleted"
 msgstr "Пользователь успешно удалён"
 
-#: task_manager/mixins.py:13
-msgid "You are not authorized!Please sign in."
+#: task_manager/mixins.py:15
+msgid "You are not authorized! Please sign in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
 #: task_manager/templates/authenticate/user_auth.html:5
@@ -203,7 +213,7 @@ msgstr "Изменение пользователя"
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/views.py:27 task_manager/views.py:30
+#: task_manager/views.py:23 task_manager/views.py:26
 msgid "You're logged out"
 msgstr "Вы разлогинены"
 

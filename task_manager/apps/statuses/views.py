@@ -8,7 +8,7 @@ from .models import Status
 from task_manager.mixins import UserAuthenticateMixin
 
 
-class StatusListView(ListView):
+class StatusListView(UserAuthenticateMixin, ListView):
     """View for list all statuses from database."""
     model = Status
     context_object_name = 'statuses'

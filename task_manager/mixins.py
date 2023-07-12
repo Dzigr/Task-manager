@@ -10,9 +10,11 @@ class UserAuthenticateMixin(LoginRequiredMixin):
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            self.permission_denied_message = _('You are not authorized!'
-                                               'Please sign in.')
-            self.permission_forwarded_url = reverse_lazy('login')
+            messages.error(
+                request,
+                _('You are not authorized! Please sign in.'),
+            )
+            return redirect(reverse_lazy('login'))
 
         return super().dispatch(request, *args, **kwargs)
 

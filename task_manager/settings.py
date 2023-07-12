@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+from django.urls import reverse_lazy
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     # Added apps
     'task_manager',
     'task_manager.apps.users.apps.UsersConfig',
-    'task_manager.apps.status.apps.StatusConfig',
+    'task_manager.apps.statuses.apps.StatusesConfig',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +127,8 @@ AUTH_PASSWORD_VALIDATORS = [
         }
     },
 ]
+
+LOGIN_URL = reverse_lazy('login')
 
 AUTH_USER_MODEL = 'users.User'
 
