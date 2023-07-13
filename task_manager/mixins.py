@@ -34,11 +34,17 @@ class CheckUserPermissionMixin(UserPassesTestMixin):
         return redirect(self.permission_forwarded_url)
 
 
+class CheckTaskAuthorPermissionMixin(CheckUserPermissionMixin):
+    """Verify task author permissions."""
+    def test_func(self):
+        return self.get_object().author == self.request.user
+
+
 class DeleteRestrictionMixin:
     """Verify object is not used by other objects."""
 
-    rejection_message = None
-    rejection_next_url = None
+    rejection_message = ''
+    rejection_next_url = ''
 
     def post(self, request, *args, **kwargs):
         try:
