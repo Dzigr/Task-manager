@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import ProtectedError
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
@@ -31,3 +32,17 @@ class CheckUserPermissionMixin(UserPassesTestMixin):
     def handle_no_permission(self):
         messages.error(self.request, self.get_permission_denied_message())
         return redirect(self.permission_forwarded_url)
+
+
+class DeleteRestrictionMixin:
+    """Verify object is not used by other objects."""
+
+    rejection_message = None
+    rejection_next_url = None
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return super().post(request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(request, self.rejection_message)
+            return redirect(self.rejection_next_url)
