@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block title %}{% trans 'Task view' %}{% endblock %}
+
+{% block content %}
+
+            <h1 class="my-4">{% trans 'Task view' %}</h1>
+
+            <div class="card">
+              <div class="card-header bg-secondary text-white">
+                <h2>{{ task.name }}</h2>
+              </div>
+
+              <div class="card-body bg-light">
+                <p>{{ task.description }}</p>
+
+                <hr>
+
+                <div class="container">
+
+
+                <div class="row p-1">
+                    <div class="col">{% trans 'Author' %}</div>
+                    <div class="col">{{ task.author }}</div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">{% trans 'Executor' %}</div>
+                    <div class="col">{{ task.executor }}</div>
+                </div>
+
+
+                <div class="row p-1">
+                    <div class="col">{% trans 'Status' %}</div>
+                    <div class="col">{{ task.status }}</div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">{% trans 'Date of creation' %}</div>
+                    <div class="col">{{ task.created_at|date:"d.m.y h:i" }}</div>
+                </div>
+
+              <div class="row p-1">
+                <div class="col">
+                  <h6>{% trans 'Labels' %}:</h6>
+                  <ul>
+                      {% for label in task.labels.all %}
+                        <li>{{ label.name }}</li>
+                      {% endfor %}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="row p-1 justify-content-end">
+                <div class="col-1">
+                  <a href="{% url 'task_update' task.pk %}" class="btn btn-primary">{% trans 'Edit' %}</a>
+                </div>
+                <div class="col-1">
+                  <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger">{% trans 'Delete' %}</a>
+                </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}
