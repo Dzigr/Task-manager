@@ -2,7 +2,7 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-{% block title %}{% trans 'Status' %}{% endblock %}
+{% block title %}{% trans 'Statuses' %}{% endblock %}
 
 {% block content %}
 
@@ -20,7 +20,8 @@
           </thead>
           <tbody>
           {% for status in statuses %}
-            <tr>
+
+          <tr class="align-baseline">
               <td>{{ status.id }}</td>
               <td>{{ status.name }}</td>
               <td>{{ status.created_at }}</td>
