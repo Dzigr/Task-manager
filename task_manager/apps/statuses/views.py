@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from .forms import StatusForm
 from .models import Status
-from task_manager.mixins import UserAuthenticateMixin
+from task_manager.mixins import UserAuthenticateMixin, DeleteRestrictionMixin
 
 
 class StatusListView(UserAuthenticateMixin, ListView):
@@ -33,9 +33,12 @@ class StatusUpdateView(UserAuthenticateMixin, SuccessMessageMixin, UpdateView):
     success_message = _('Status successfully updated')
 
 
-class StatusDeleteView(UserAuthenticateMixin, SuccessMessageMixin, DeleteView):
+class StatusDeleteView(UserAuthenticateMixin, SuccessMessageMixin,
+                       DeleteRestrictionMixin, DeleteView):
     """View to delete existing user."""
     model = Status
     template_name = 'statuses/delete.html'
     success_message = _('Status successfully deleted')
     success_url = reverse_lazy('statuses')
+    rejection_message = _("Unable to delete status because it's in use")
+    rejection_next_url = reverse_lazy('statuses')

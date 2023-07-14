@@ -29,8 +29,6 @@ class Task(models.Model):
         on_delete=models.PROTECT,
         related_name='status',
         verbose_name=_('status'),
-        blank=True,
-        null=True,
     )
     labels = models.ManyToManyField(
         Label,

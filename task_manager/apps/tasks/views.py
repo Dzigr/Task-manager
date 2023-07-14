@@ -56,7 +56,6 @@ class TaskDeleteView(UserAuthenticateMixin, SuccessMessageMixin,
     model = Task
     template_name = 'tasks/delete.html'
     success_message = _('Task successfully deleted')
-    success_url = reverse_lazy('statuses')
+    success_url = reverse_lazy('tasks')
     permission_denied_message = _('A task can only be deleted by its author.')
     permission_forwarded_url = reverse_lazy('tasks')
-

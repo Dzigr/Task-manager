@@ -6,7 +6,8 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from .forms import NewUserCreationForm, UpdateForm
-from task_manager.mixins import UserAuthenticateMixin, CheckUserPermissionMixin
+from task_manager.mixins import UserAuthenticateMixin, CheckUserPermissionMixin,\
+                                DeleteRestrictionMixin
 
 
 class UserListView(SuccessMessageMixin, ListView):
@@ -46,7 +47,7 @@ class UserUpdateView(UserAuthenticateMixin, CheckUserPermissionMixin,
 
 
 class UserDeleteView(UserAuthenticateMixin, CheckUserPermissionMixin,
-                     SuccessMessageMixin, DeleteView):
+                     SuccessMessageMixin, DeleteRestrictionMixin, DeleteView):
     """View to delete existing user."""
     model = get_user_model()
     template_name = 'users/delete.html'
@@ -54,6 +55,8 @@ class UserDeleteView(UserAuthenticateMixin, CheckUserPermissionMixin,
     success_url = reverse_lazy('users')
     permission_denied_message = _('You have no rights to change another user.')
     permission_forwarded_url = 'users'
+    rejection_message = _('Unable to delete user because it is in use')
+    rejection_next_url = reverse_lazy('users')
 
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
