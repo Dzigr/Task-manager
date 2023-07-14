@@ -1,0 +1,20 @@
+{
+    "new_valid": {
+      "name": "Space flight",
+      "description": "Off we go!",
+      "executor": 1,
+      "status": 10
+    },
+    "new_not_valid": {
+      "name": "",
+      "description": "",
+      "executor": "",
+      "status": ""
+    },
+    "existing": {
+      "name": "Need to check the rocket",
+      "description": "",
+      "executor": 2,
+      "status": 11
+    }
+}
