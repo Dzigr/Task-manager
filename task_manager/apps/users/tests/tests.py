@@ -7,7 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 class UserTestCase(TestCase):
-    fixtures = ['users.json']
+    fixtures = ['users.json', 'tasks.json', 'statuses.json', 'labels.json']
     test_user = get_json_data('test_user')
 
     def setUp(self):
@@ -31,6 +31,10 @@ class UserTestCase(TestCase):
         self.user_delete_url = reverse(
             'delete',
             args=[self.user1.pk],
+        )
+        self.user_w_task_delete_url = reverse(
+            'delete',
+            args=[self.user3.pk],
         )
 
 
@@ -168,10 +172,21 @@ class UserDeleteViewTestCase(UserTestCase):
     def test_delete_without_permission(self):
         self.client.force_login(self.user2)
         response = self.client.post(self.user_delete_url, follow=True)
-
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, self.users_url)
         self.assertContains(
             response,
             text=_('You have no rights to change another user.'),
+        )
+
+    def test_delete_user_with_task(self):
+        self.client.force_login(self.user3)
+        response = self.client.post(self.user_w_task_delete_url, follow=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, self.users_url)
+        self.assertEqual(get_user_model().objects.count(), self.users_count)
+        self.assertContains(
+            response,
+            text=_('Unable to delete user because it is in use'),
         )

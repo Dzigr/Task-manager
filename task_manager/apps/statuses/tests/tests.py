@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 class StatusTestCase(TestCase):
-    fixtures = ['users.json', 'statuses.json']
+    fixtures = ['users.json', 'tasks.json', 'statuses.json', 'labels.json']
     test_statuses = get_json_data('test_status')
 
     def setUp(self):
@@ -34,6 +34,10 @@ class StatusTestCase(TestCase):
         self.statuses_delete_url = reverse(
             'status_delete',
             args=[self.status_1.pk],
+        )
+        self.bound_status_delete_url = reverse(
+            'status_delete',
+            args=[self.status_2.pk],
         )
 
 
@@ -83,7 +87,7 @@ class StatusCreateViewTestCase(StatusTestCase):
         self.assertRedirects(response, self.statuses_url)
         self.assertEquals(
             self.statuses_count + 1,
-            get_user_model().objects.count(),
+            Status.objects.count(),
         )
 
     def test_add_missing_name_status(self):
@@ -165,4 +169,15 @@ class StatusDeleteViewTestCase(StatusTestCase):
         )
 
     def test_delete_bounded_status(self):
-        pass
+        response = self.client.post(
+            self.bound_status_delete_url,
+            follow=True,
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, self.statuses_url)
+        self.assertEqual(Status.objects.count(), self.statuses_count)
+        self.assertContains(
+            response,
+            text=_("Unable to delete status because it's in use"),
+        )
