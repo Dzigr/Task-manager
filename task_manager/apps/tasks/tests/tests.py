@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from task_manager.apps.tasks.models import Task
+from django import test
 from django.test import TestCase, Client
 from django.urls import reverse
 from task_manager.json_data_reader import get_json_data
@@ -7,6 +8,9 @@ from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ObjectDoesNotExist
 
 
+@test.modify_settings(MIDDLEWARE={'remove': [
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+]})
 class TaskTestCase(TestCase):
     fixtures = ['users.json', 'tasks.json', 'statuses.json', 'labels.json']
     test_tasks = get_json_data('test_task')

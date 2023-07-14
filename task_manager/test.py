@@ -1,8 +1,12 @@
 from django.contrib.auth import get_user_model
+from django import test
 from django.test import TestCase, Client
 from django.urls import reverse
 
 
+@test.modify_settings(MIDDLEWARE={'remove': [
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+]})
 class MainAuthTestCase(TestCase):
 
     def setUp(self):

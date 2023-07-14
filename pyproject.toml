@@ -19,6 +19,7 @@ whitenoise = "^6.5.0"
 django-crispy-forms = "^2.0"
 crispy-bootstrap5 = "^0.7"
 django-filter = "^23.2"
+rollbar = "^0.16.3"
 
 
 [tool.poetry.group.dev.dependencies]
