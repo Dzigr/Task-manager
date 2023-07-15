@@ -37,3 +37,8 @@ test-coverage:
 
 req:
 	poetry export --without-hashes --format=requirements.txt > requirements.txt
+
+env:
+	cp .env.example .env
+
+setup: env install migration
