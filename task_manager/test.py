@@ -16,9 +16,9 @@ class MainAuthTestCase(TestCase):
         self.logout_url = reverse('logout')
 
         self.credentials = {
-                'username': 'Beta',
-                'password': 'some_p@ssword',
-            }
+            'username': 'Beta',
+            'password': 'some_p@ssword',
+        }
 
         self.user = get_user_model().objects.create_user(**self.credentials)
 
