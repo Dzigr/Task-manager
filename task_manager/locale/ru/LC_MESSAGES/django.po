@@ -162,7 +162,7 @@ msgstr "Неудачная регистрация. Введена неверна
 #: task_manager/apps/users/tests/tests.py:127
 #: task_manager/apps/users/views.py:44
 msgid "User information successfully updated"
-msgstr "Пользователь успешно изменён"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/apps/users/tests/tests.py:147
 #: task_manager/apps/users/tests/tests.py:179
