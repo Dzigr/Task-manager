@@ -13,7 +13,7 @@ Task Manager web-application based on the Django framework, that allows to set t
 
 The interface of the project realized with uses the Bootstrap framework and built by the DjangoTemplates backend.
 
-[You may try demo here]()
+[You may try demo here](https://task-manager-qnel.onrender.com)
 
 
 **Stack:**
