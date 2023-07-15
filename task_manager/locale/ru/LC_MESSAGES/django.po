@@ -176,7 +176,7 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/apps/users/views.py:54
 msgid "User is successfully deleted"
-msgstr "Пользователь успешно удалён"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/apps/users/views.py:58
 msgid "Unable to delete user because it is in use"
