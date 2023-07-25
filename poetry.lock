@@ -238,6 +238,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-bootstrap-icons"
+version = "0.8.3"
+description = "A quick way to add Bootstrap Icons with Django template tags."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-bootstrap-icons-0.8.3.tar.gz", hash = "sha256:2950414181a9c529feed075b4b77e52278e03c445b80f9192760d5fdd25385da"},
+    {file = "django_bootstrap_icons-0.8.3-py3-none-any.whl", hash = "sha256:94470dce3063249f365fc362fcb1d78c6ca6b71c5fc87e78de2ed685fa69cc3c"},
+]
+
+[package.dependencies]
+django = "*"
+requests = "*"
+
+[[package]]
 name = "django-bootstrap5"
 version = "23.3"
 description = "Bootstrap 5 for Django"
@@ -590,4 +605,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "eca8c91e758516f30c447fce5f7fc89bfb7cfd21101b35628761fe11d57ad104"
+content-hash = "a495f75fa4d2f4720a1db3dc3b66f1a05567b283c7eae126e4db11da3dbd54c2"

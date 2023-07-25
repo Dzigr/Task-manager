@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Added bootstrap
     'django_bootstrap5',
+    'django_bootstrap_icons',
     # Added crispy forms
     "crispy_forms",
     "crispy_bootstrap5",

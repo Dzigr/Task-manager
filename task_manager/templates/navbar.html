@@ -1,13 +1,14 @@
 {% load i18n %}
+{% load bootstrap_icons %}
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{% url 'main' %}">{% trans 'Task manager' %}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+      <ul class="navbar-nav me-auto">
 
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'users' %}">{% trans 'Users' %}</a>
@@ -25,7 +26,8 @@
         </li>
 
         {% endif %}
-
+      </ul>
+      <ul class="navbar-nav">
         {% if not user.is_authenticated %}
 
           <li class="nav-item">
@@ -37,13 +39,22 @@
           </li>
 
         {% else %}
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
-          </li>
+          <div class="btn-group dropstart">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle"
+                    data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+             {% bs_icon 'person-circle' extra_classes='bi' %}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item d-inline-block text-wrap text-center disabled"
+                     style="max-width:250px">{{ user.username }}</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center" href="{% url 'edit' user.id %}">{% trans 'Edit' %}</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center" href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+              </ul>
+          </div>
 
         {% endif %}
-
 
       </ul>
     </div>

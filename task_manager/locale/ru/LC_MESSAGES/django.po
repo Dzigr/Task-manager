@@ -259,6 +259,7 @@ msgstr "Дата создания"
 #: task_manager/templates/tasks/update.html:15
 #: task_manager/templates/users/main.html:31
 #: task_manager/templates/users/update.html:15
+#: task_manager/templates/navbar.html:51
 msgid "Edit"
 msgstr "Изменить"
 
@@ -292,7 +293,7 @@ msgstr "Задачи"
 msgid "Sing up"
 msgstr "Регистрация"
 
-#: task_manager/templates/navbar.html:42
+#: task_manager/templates/navbar.html:53
 msgid "Logout"
 msgstr "Выход"
 
